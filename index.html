@@ -97,7 +97,7 @@ th.sabado{
 
 td{
     border:1px solid #d0d0d0;
-    height:48px;
+    height:60px;
     text-align:center;
     vertical-align:middle;
     font-size:16px;
@@ -108,6 +108,10 @@ td{
     background:#e9e9e9;
     font-weight:bold;
     color:#003b7a;
+}
+
+.semana-atual td{
+    background:#eaf2ff !important;
 }
 
 .domingo-dia{
@@ -339,6 +343,7 @@ function gerarCalendario(){
     const primeiroDia=new Date(ano,mes,1);
     const ultimoDia=new Date(ano,mes+1,0);
     const feriados=feriadosAno(ano);
+    const semanaAtual = numeroSemana(hoje);
 
     const feriadosMes=feriados.filter(f=>f.data.getMonth()===mes);
 
@@ -355,6 +360,13 @@ function gerarCalendario(){
     }
 
     let linha=document.createElement("tr");
+
+    if(numeroSemana(primeiroDia) === semanaAtual &&
+       mes === hoje.getMonth() &&
+       ano === hoje.getFullYear()){
+        linha.classList.add("semana-atual");
+    }
+
     linha.innerHTML=`<td class="semana">${numeroSemana(primeiroDia)}</td>`;
 
     for(let i=0;i<primeiroDia.getDay();i++){
@@ -362,9 +374,18 @@ function gerarCalendario(){
     }
 
     for(let dia=1; dia<=ultimoDia.getDate(); dia++){
+
         if(linha.children.length===8){
             calendario.appendChild(linha);
+
             linha=document.createElement("tr");
+
+            if(numeroSemana(new Date(ano,mes,dia)) === semanaAtual &&
+               mes === hoje.getMonth() &&
+               ano === hoje.getFullYear()){
+                linha.classList.add("semana-atual");
+            }
+
             linha.innerHTML=`<td class="semana">${numeroSemana(new Date(ano,mes,dia))}</td>`;
         }
 
