@@ -1,0 +1,17 @@
+{
+  "name": "Calendário WosVIP",
+  "short_name": "Calendário",
+  "description": "Calendário WosVIP com semanas e feriados.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#4a6fa5",
+  "theme_color": "#003b7a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icone.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
