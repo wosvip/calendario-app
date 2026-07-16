@@ -1,17 +1,19 @@
 {
-  "name": "Calendário Premium",
+  "name": "Calendário WosVIP",
   "short_name": "Calendário",
-  "description": "Calendário WosVIP com semanas e feriados.",
+  "description": "Calendário moderno com semanas ISO e feriados nacionais do Brasil.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#4a6fa5",
-  "theme_color": "#003b7a",
   "orientation": "portrait",
+  "background_color": "#315b93",
+  "theme_color": "#07111f",
   "icons": [
     {
-      "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "icone.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
